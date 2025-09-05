@@ -31,16 +31,16 @@ export const BreathingBackground = () => {
     }> = [];
 
     // Create peaceful breathing orbs
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 8; i++) {
       orbs.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: 20 + Math.random() * 40,
-        baseRadius: 20 + Math.random() * 40,
+        radius: 15 + Math.random() * 25,
+        baseRadius: 15 + Math.random() * 25,
         phase: Math.random() * Math.PI * 2,
-        speed: 0.005 + Math.random() * 0.01,
-        color: `hsl(${180 + Math.random() * 90}, ${40 + Math.random() * 20}%, ${55 + Math.random() * 15}%)`,
-        opacity: 0.1 + Math.random() * 0.15
+        speed: 0.003 + Math.random() * 0.005,
+        color: `hsl(${180 + Math.random() * 90}, ${30 + Math.random() * 20}%, ${50 + Math.random() * 20}%)`,
+        opacity: 0.05 + Math.random() * 0.1
       });
     }
 
@@ -94,7 +94,7 @@ export const BreathingBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-60"
+      className="fixed inset-0 pointer-events-none z-0 opacity-30"
       style={{ background: "transparent" }}
     />
   );
