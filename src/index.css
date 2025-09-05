@@ -8,54 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Mental Wellness Color Palette */
-    --background: 231 32% 8%;
-    --foreground: 210 100% 95%;
+    /* Ultra Peaceful Color Palette */
+    --background: 220 15% 6%;
+    --foreground: 200 100% 96%;
 
-    --card: 234 25% 12%;
-    --card-foreground: 210 100% 95%;
+    --card: 220 20% 10%;
+    --card-foreground: 200 100% 96%;
 
-    --popover: 234 25% 12%;
-    --popover-foreground: 210 100% 95%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 200 100% 96%;
 
-    /* Calming Primary Blues */
-    --primary: 224 76% 48%;
-    --primary-foreground: 210 100% 98%;
-    --primary-glow: 224 90% 65%;
+    /* Serene Primary - Soft Cyan */
+    --primary: 180 40% 55%;
+    --primary-foreground: 220 100% 98%;
+    --primary-glow: 180 60% 70%;
 
-    /* Peaceful Secondary */
-    --secondary: 234 25% 16%;
-    --secondary-foreground: 210 100% 95%;
+    /* Tranquil Secondary */
+    --secondary: 220 20% 14%;
+    --secondary-foreground: 200 100% 96%;
 
     /* Soft Muted Tones */
-    --muted: 234 20% 20%;
-    --muted-foreground: 210 30% 70%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 200 25% 75%;
 
-    /* Gentle Accent */
-    --accent: 260 60% 25%;
-    --accent-foreground: 210 100% 95%;
+    /* Gentle Accent - Lavender */
+    --accent: 270 40% 60%;
+    --accent-foreground: 220 100% 98%;
 
-    /* Soft Destructive */
-    --destructive: 0 65% 55%;
-    --destructive-foreground: 210 100% 98%;
+    /* Soft Warning */
+    --destructive: 15 70% 60%;
+    --destructive-foreground: 220 100% 98%;
 
     /* Subtle Borders */
-    --border: 234 20% 20%;
-    --input: 234 20% 20%;
-    --ring: 224 76% 48%;
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 180 40% 55%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Wellness Gradients */
-    --gradient-peaceful: linear-gradient(135deg, hsl(231 32% 8%), hsl(234 25% 12%), hsl(260 40% 15%));
-    --gradient-hero: linear-gradient(135deg, hsl(224 76% 48%), hsl(260 60% 45%), hsl(280 70% 55%));
-    --gradient-card: linear-gradient(135deg, hsl(234 25% 12%) 0%, hsl(234 20% 16%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(180 100% 50%), hsl(220 100% 60%), hsl(260 100% 70%));
+    /* Peaceful Gradients */
+    --gradient-peaceful: linear-gradient(135deg, hsl(220 15% 6%), hsl(220 20% 10%), hsl(240 25% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(180 40% 55%), hsl(200 50% 60%), hsl(270 40% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(220 20% 10%) 0%, hsl(220 15% 14%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(180 60% 60%), hsl(200 60% 65%), hsl(270 50% 70%));
+    --gradient-breathing: radial-gradient(circle at center, hsl(180 60% 60% / 0.1), hsl(270 40% 60% / 0.05), transparent);
     
-    /* Glow Effects */
-    --glow-primary: 0 0 30px hsl(224 76% 48% / 0.4);
-    --glow-accent: 0 0 40px hsl(260 60% 45% / 0.3);
-    --glow-peaceful: 0 0 60px hsl(180 100% 50% / 0.2);
+    /* Enhanced Glow Effects */
+    --glow-primary: 0 0 40px hsl(180 40% 55% / 0.5);
+    --glow-accent: 0 0 50px hsl(270 40% 60% / 0.4);
+    --glow-peaceful: 0 0 80px hsl(180 60% 60% / 0.3);
+    --glow-ring: 0 0 60px hsl(180 40% 55% / 0.6);
 
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -113,6 +115,21 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     background: var(--gradient-peaceful);
     overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Breathing Background Effect */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-breathing);
+    animation: breathe 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
   }
 }
 
@@ -137,16 +154,45 @@ All colors MUST be HSL.
     background: var(--gradient-cta);
   }
 
-  /* Feature Cards */
+  /* Enhanced Feature Cards with Radical Ring */
   .feature-card {
-    @apply p-6 rounded-2xl border border-border/50 backdrop-blur-sm;
-    @apply hover:shadow-[var(--glow-accent)] transform hover:scale-105 hover:-translate-y-2;
-    @apply transition-all duration-500 cursor-pointer;
+    @apply p-6 rounded-2xl border border-border/50 backdrop-blur-sm relative;
+    @apply hover:shadow-[var(--glow-ring)] transform hover:scale-105 hover:-translate-y-2;
+    @apply transition-all duration-700 cursor-pointer;
     background: var(--gradient-card);
+    position: relative;
+    overflow: hidden;
   }
 
-  .feature-card:hover {
-    border-color: hsl(var(--primary) / 0.5);
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary-glow)), hsl(var(--primary)));
+    border-radius: inherit;
+    opacity: 0;
+    animation: spin 3s linear infinite;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .feature-card:hover::before {
+    opacity: 1;
+  }
+
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-card);
+    border-radius: calc(var(--radius) - 2px);
+    z-index: -1;
   }
 
   /* Testimonial Cards */
@@ -157,21 +203,29 @@ All colors MUST be HSL.
     background: var(--gradient-card);
   }
 
-  /* Peaceful Animations */
+  /* Enhanced Peaceful Animations */
   .float-animation {
-    animation: float 6s ease-in-out infinite;
+    animation: floating-3d 8s ease-in-out infinite;
   }
 
   .pulse-glow {
-    animation: pulse-glow 4s ease-in-out infinite;
+    animation: pulse-glow 6s ease-in-out infinite;
   }
 
   .rotate-slow {
-    animation: rotate-slow 20s linear infinite;
+    animation: rotate-slow 30s linear infinite;
   }
 
   .wave-animation {
-    animation: wave 8s ease-in-out infinite;
+    animation: wave 10s ease-in-out infinite;
+  }
+
+  .orbit-animation {
+    animation: orbit 20s linear infinite;
+  }
+
+  .breathe-animation {
+    animation: breathe 8s ease-in-out infinite;
   }
 
   /* Ring Animation for Features */
@@ -275,6 +329,47 @@ All colors MUST be HSL.
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.2;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+  }
+}
+
+@keyframes floating-3d {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  }
+  66% {
+    transform: translateY(5px) rotateX(-3deg) rotateY(-3deg);
   }
 }
 

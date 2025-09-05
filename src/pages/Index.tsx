@@ -2,12 +2,12 @@ import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { Testimonials } from "@/components/Testimonials";
 import { CallToAction } from "@/components/CallToAction";
-import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { BreathingBackground } from "@/components/BreathingBackground";
 
 const Index = () => {
   return (
     <>
-      <AnimatedBackground />
+      <BreathingBackground />
       <main className="relative z-10">
         <Hero />
         <Features />
