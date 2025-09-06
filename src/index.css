@@ -8,56 +8,58 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Ultra Peaceful Color Palette */
-    --background: 220 15% 6%;
-    --foreground: 200 100% 96%;
+    /* Eye-Comforting Color Palette */
+    --background: 225 15% 8%;
+    --foreground: 210 40% 95%;
 
-    --card: 220 20% 10%;
-    --card-foreground: 200 100% 96%;
+    --card: 225 20% 12%;
+    --card-foreground: 210 40% 95%;
 
-    --popover: 220 20% 10%;
-    --popover-foreground: 200 100% 96%;
+    --popover: 225 20% 12%;
+    --popover-foreground: 210 40% 95%;
 
-    /* Serene Primary - Soft Cyan */
-    --primary: 180 40% 55%;
-    --primary-foreground: 220 100% 98%;
-    --primary-glow: 180 60% 70%;
+    /* Peaceful Primary - Soft Teal */
+    --primary: 175 50% 65%;
+    --primary-foreground: 225 100% 98%;
+    --primary-glow: 175 70% 80%;
 
-    /* Tranquil Secondary */
-    --secondary: 220 20% 14%;
-    --secondary-foreground: 200 100% 96%;
+    /* Calming Secondary */
+    --secondary: 225 25% 18%;
+    --secondary-foreground: 210 40% 95%;
 
-    /* Soft Muted Tones */
-    --muted: 220 15% 18%;
-    --muted-foreground: 200 25% 75%;
+    /* Gentle Muted Tones */
+    --muted: 225 20% 22%;
+    --muted-foreground: 210 25% 78%;
 
-    /* Gentle Accent - Lavender */
-    --accent: 270 40% 60%;
-    --accent-foreground: 220 100% 98%;
+    /* Soothing Accent - Soft Lavender */
+    --accent: 260 45% 70%;
+    --accent-foreground: 225 100% 98%;
 
-    /* Soft Warning */
-    --destructive: 15 70% 60%;
-    --destructive-foreground: 220 100% 98%;
+    /* Warm Warning */
+    --destructive: 20 75% 65%;
+    --destructive-foreground: 225 100% 98%;
 
-    /* Subtle Borders */
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 180 40% 55%;
+    /* Soft Borders */
+    --border: 225 20% 25%;
+    --input: 225 20% 25%;
+    --ring: 175 50% 65%;
 
-    --radius: 1rem;
+    --radius: 1.2rem;
 
     /* Peaceful Gradients */
-    --gradient-peaceful: linear-gradient(135deg, hsl(220 15% 6%), hsl(220 20% 10%), hsl(240 25% 12%));
-    --gradient-hero: linear-gradient(135deg, hsl(180 40% 55%), hsl(200 50% 60%), hsl(270 40% 60%));
-    --gradient-card: linear-gradient(135deg, hsl(220 20% 10%) 0%, hsl(220 15% 14%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(180 60% 60%), hsl(200 60% 65%), hsl(270 50% 70%));
-    --gradient-breathing: radial-gradient(circle at center, hsl(180 60% 60% / 0.1), hsl(270 40% 60% / 0.05), transparent);
+    --gradient-peaceful: linear-gradient(135deg, hsl(225 15% 8%), hsl(225 20% 12%), hsl(235 25% 15%));
+    --gradient-hero: linear-gradient(135deg, hsl(175 50% 65%), hsl(190 55% 70%), hsl(260 45% 70%));
+    --gradient-card: linear-gradient(135deg, hsl(225 20% 12%) 0%, hsl(225 25% 18%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(175 60% 70%), hsl(190 60% 75%), hsl(260 50% 75%));
+    --gradient-breathing: radial-gradient(circle at center, hsl(175 60% 70% / 0.08), hsl(260 45% 70% / 0.04), transparent);
+    --gradient-feature: linear-gradient(145deg, hsl(225 20% 12%), hsl(225 25% 18%), hsl(225 20% 15%));
     
     /* Enhanced Glow Effects */
-    --glow-primary: 0 0 40px hsl(180 40% 55% / 0.5);
-    --glow-accent: 0 0 50px hsl(270 40% 60% / 0.4);
-    --glow-peaceful: 0 0 80px hsl(180 60% 60% / 0.3);
-    --glow-ring: 0 0 60px hsl(180 40% 55% / 0.6);
+    --glow-primary: 0 0 40px hsl(175 50% 65% / 0.4);
+    --glow-accent: 0 0 50px hsl(260 45% 70% / 0.3);
+    --glow-peaceful: 0 0 80px hsl(175 60% 70% / 0.25);
+    --glow-ring: 0 0 60px hsl(175 50% 65% / 0.5);
+    --glow-3d: 0 20px 40px hsl(175 50% 65% / 0.15);
 
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -155,33 +157,35 @@ All colors MUST be HSL.
     background: var(--gradient-cta);
   }
 
-  /* Enhanced Feature Cards with Radical Ring */
+  /* Enhanced Feature Cards with 3D Effects */
   .feature-card {
-    @apply p-6 rounded-2xl border border-border/50 backdrop-blur-sm relative;
-    @apply hover:shadow-[var(--glow-ring)] transform hover:scale-105 hover:-translate-y-2;
-    @apply transition-all duration-700 cursor-pointer;
-    background: var(--gradient-card);
+    @apply p-8 rounded-3xl border border-border/30 backdrop-blur-sm relative;
+    @apply hover:shadow-[var(--glow-3d)] transform hover:scale-105 hover:-translate-y-4;
+    @apply transition-all duration-500 cursor-pointer;
+    background: var(--gradient-feature);
     position: relative;
     overflow: hidden;
+    transform-style: preserve-3d;
   }
 
   .feature-card::before {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
     background: conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary-glow)), hsl(var(--primary)));
     border-radius: inherit;
     opacity: 0;
-    animation: spin 3s linear infinite;
-    transition: opacity 0.3s ease;
-    z-index: -1;
+    animation: spin 4s linear infinite;
+    transition: opacity 0.4s ease;
+    z-index: -2;
+    filter: blur(1px);
   }
 
   .feature-card:hover::before {
-    opacity: 1;
+    opacity: 0.8;
   }
 
   .feature-card::after {
@@ -191,9 +195,13 @@ All colors MUST be HSL.
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--gradient-card);
-    border-radius: calc(var(--radius) - 2px);
+    background: var(--gradient-feature);
+    border-radius: calc(var(--radius) - 3px);
     z-index: -1;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px) rotateX(5deg) rotateY(2deg) scale(1.02);
   }
 
   /* Testimonial Cards */
@@ -255,12 +263,40 @@ All colors MUST be HSL.
     opacity: 1;
   }
 
-  /* Gradient Text */
+  /* Gradient Text with Hover Effects */
   .gradient-text {
     background: var(--gradient-hero);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    transition: all 0.3s ease;
+  }
+
+  .text-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .text-hover:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 4px 8px hsl(var(--primary) / 0.3));
+  }
+
+  .text-hover::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-hero);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    border-radius: 1px;
+  }
+
+  .text-hover:hover::before {
+    transform: scaleX(1);
   }
 
   /* Peaceful Scrollbar */
