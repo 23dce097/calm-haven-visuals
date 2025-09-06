@@ -24,28 +24,48 @@ export const Hero = () => {
 
       {/* Main Content */}
       <div className="relative z-20 text-center max-w-5xl mx-auto px-6">
-        {/* Brand Badge */}
+        {/* Enhanced Brand Badge with Breathing Animation */}
         <div className="mb-8 flex justify-center">
-          <div className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/30">
-            <div className="relative w-12 h-12 rounded-xl overflow-hidden">
-              <img 
-                src={brainIcon} 
-                alt="MindMate Brain Icon" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
+          <div className="relative">
+            {/* Breathing Background Animation */}
+            <div className="absolute inset-0 animate-breathe-slow">
+              <div className="w-full h-full bg-primary/10 rounded-3xl blur-xl scale-110" />
             </div>
-            <span className="text-sm font-medium text-muted-foreground tracking-wider">
-              YOUR SPACE. YOUR PACE.
-            </span>
+            <div className="absolute inset-0 animate-breathe-medium">
+              <div className="w-full h-full bg-accent/15 rounded-2xl blur-lg scale-105" />
+            </div>
+            
+            {/* Main Badge */}
+            <div className="relative flex items-center gap-4 px-8 py-4 rounded-3xl bg-card/80 backdrop-blur-md border border-border/40 hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10">
+              <div className="relative w-14 h-14 rounded-2xl overflow-hidden group">
+                {/* Breathing Ring Animation */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl animate-breathe-pulse opacity-60" />
+                
+                <img 
+                  src={brainIcon} 
+                  alt="MindMate Brain Icon" 
+                  className="w-full h-full object-cover rounded-2xl relative z-10 group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-accent/20 rounded-2xl" />
+              </div>
+              <span className="text-sm font-semibold text-foreground/80 tracking-[0.2em] hover:text-primary transition-colors">
+                YOUR SPACE. YOUR PACE.
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Hero Title */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
-          <span className="block gradient-text">A calming AI space</span>
-          <span className="block text-foreground">for daily</span>
-          <span className="block gradient-text">emotional care</span>
+        {/* Hero Title with Hover Effects */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight select-none">
+          <span className="block gradient-text hover-text-effect transition-all duration-500 cursor-default">
+            A calming AI space
+          </span>
+          <span className="block text-foreground hover-text-effect-secondary transition-all duration-500 cursor-default hover:text-primary/80">
+            for daily
+          </span>
+          <span className="block gradient-text hover-text-effect transition-all duration-500 cursor-default">
+            emotional care
+          </span>
         </h1>
 
         {/* Hero Description */}
